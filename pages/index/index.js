@@ -17,9 +17,7 @@ Page({
     })
   },
   onLoad: function () {
-    wx.getShareInfo({
-      shareTicket: '',
-    })
+    wx.authorize({ scope: "scope.werun" })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -48,11 +46,27 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  bindGetLink: function() {
+    wx.chooseInvoiceTitle({
+      success: (res) => {
+        console.log(res)
+      }
+    })
+  },
+  bindgetphonenumbers: function(res) {
+    console.log(777, res);
+  },
+  launchAppError:function(res) {
+    console.log(87, res)
+  },
+  bindcontact: function (e) {
+    console.log(e.path)
+    console.log(e.query)
   }
 })

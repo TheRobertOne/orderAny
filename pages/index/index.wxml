@@ -9,6 +9,10 @@
     <open-data type="groupName"></open-data>
   </view>
   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+    <button open-type='contact' bindcontact='bindcontact'>客服消息</button>
+    <button open-type="launchApp" app-parameter="wechat" binderror="launchAppError">打开APP</button> 
+    <button open-type='getPhoneNumber' bindgetphonenumber='bindgetphonenumbers'>获取手机号</button>
+    <button bindtap="bindGetLink" type='primary'>点击点击点击</button>
+    <map></map>
   </view>
 </view>
